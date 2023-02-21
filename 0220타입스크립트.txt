@@ -1,0 +1,29 @@
+npx create-react-app ts-react --template typescript
+
+1.props 전달 시 props타입을 interface로 지정해야한다. 
+ex>
+interface HelloProps = {
+	name : string
+}
+const Hello ({name}:HelloProps) => { }
+
+2.상태의 타입의 지정
+상태타입이 변경되지 않는경우는 생략해도됨
+상태가 null 일수도 있고 아닐수도 있을때 제네릭을 활용하여 지정
+const [state,setState] = useState(0) //타입유추 : 제너릭 타입 생략가능
+type stateobject = { name: string, age: number}
+const [state,setState] = useState< number | object >(null)
+
+3.이벤트 객체의 타입지정
+onChange시 이벤트 객체의 타입
+React.ChangeEvent<HTMLInputElement>
+onSubmit이벤트 객체의 타입
+React.FormEvent<HTMLFormElement>
+
+4.useReducer사용하기
+reducer함수생성
+type Action = {type:'INCREASE'} | {type:'DECREASE'} 
+//올수있는 액션타입을 유니언타입으로 쭉 나열해서 작성
+function reducer(state:number , action:Action):number{
+		
+}

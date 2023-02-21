@@ -5,8 +5,10 @@ import Hello from './components/Hello';
 import Counter from './components/Counter';
 import MyForm from './components/MyForm';
 import CounterReducer from './components/CounterReducer';
-import Todolists from './components/Todolists';
-import InputTodo from './components/InputTodo';
+import ReducerSample from './components/ReducerSample';
+import SampleContext from './context/SampleContext';
+import ReducerSampleEdit from './components/ReducerSampleEdit';
+import TodolisContext from './context/TodolisContext';
 const initalState = [
   {
     id:1,
@@ -54,17 +56,6 @@ function reducer(state:dataType[],action:actionType):dataType[]{
 function App() {
   const [todos,dispatch] = useReducer(reducer,initalState)
 
-  const onaddtodo = (todo:dataType)=>{
-    dispatch({type:"ADDTODO",todo:todo})
-  }
-
-  const onToggletodo = (id:number) =>{
-    dispatch({type:"TOGGLETODO",id:id})
-  }
-
-  const onDeltodo = (id:number) => {
-    dispatch({type:"DELTODO", id: id})
-  }
 
   // const onDeltodo = (id:number) =>{
   //   dispatch({})
@@ -86,8 +77,15 @@ function App() {
       <Counter/>
       <MyForm onFormSubmit={onFormSubmit}/>
       <CounterReducer/> */}
-      <InputTodo onaddtodo={onaddtodo}/>
+      {/* <InputTodo onaddtodo={onaddtodo}/>
       <Todolists todos={todos} onToggletodo={onToggletodo} onDeltodo={onDeltodo}/>
+      <ReducerSample/> */}
+      {/* <SampleContext>
+        <ReducerSampleEdit/>
+      </SampleContext> */}
+      {/* <TodolisContext>
+        <Sampletodolist/>
+      </TodolisContext> */}
     </div>
   );
 }
